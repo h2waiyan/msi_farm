@@ -20,3 +20,5 @@
         min-height: 100vh;
         background: linear-gradient(to bottom right, #9be15d, #00e3ae);
       }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

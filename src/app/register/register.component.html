@@ -1,0 +1,79 @@
+<div style="width: 50%" class="mx-auto">
+  <form action="">
+    <h1>REGISTER</h1>
+
+    <label for="username" class="form-label">Username</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      class="form-control"
+      [formControl]="username"
+    />
+
+    <br />
+
+    <label for="password" class="form-label">Password </label>
+    <input
+      type="text"
+      id="password"
+      name="password"
+      class="form-control"
+      [formControl]="password"
+    />
+
+    <br />
+
+    <h3>Choose Gender</h3>
+
+    <!-- <input
+      type="radio"
+      id="male"
+      name="gendergp"
+      value="male"
+      [formControl]="genderradio"
+    />
+    <label for="male">Male</label>
+
+    <br />
+
+    <input
+      type="radio"
+      id="female"
+      name="gendergp"
+      value="female"
+      [formControl]="genderradio"
+    />
+    <label for="female">Female</label>
+
+    <br />
+
+    <input
+      type="radio"
+      id="rather"
+      name="gendergp"
+      value="rather"
+      [formControl]="genderradio"
+    />
+    <label for="rather">Rather Not To Say</label>
+
+    <br /> -->
+
+    <ng-container *ngFor="let gender of genders">
+      <input
+        type="radio"
+        [id]="gender"
+        name="gendergroup"
+        [value]="gender"
+        [formControl]="genderradio"
+        class="form-check-input"
+      />
+      <label [for]="gender" class="mx-2 form-check-label"> {{ gender }}</label>
+
+      <br />
+      <br />
+    </ng-container>
+
+    <button class="btn btn-primary w-100" (click)="register()">Register</button>
+  </form>
+</div>

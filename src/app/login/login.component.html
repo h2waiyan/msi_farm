@@ -1,0 +1,25 @@
+<h1>Login</h1>
+
+<label for="username" class="form-label">Username</label>
+<input
+  type="text"
+  id="username"
+  name="username"
+  class="form-control"
+  [(ngModel)]="username"
+/>
+
+<br />
+
+<label for="password" class="form-label">Password </label>
+<input
+  type="text"
+  id="password"
+  name="password"
+  class="form-control"
+  [(ngModel)]="password"
+/>
+
+<br />
+
+<button class="btn btn-primary" (click)="login()">Login</button>

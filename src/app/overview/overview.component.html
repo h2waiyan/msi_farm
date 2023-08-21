@@ -1,123 +1,81 @@
 <div class="container">
   <h1>🌽 MSI Farm 🥦</h1>
 
+  <!-- <mat-slide-toggle (change)="themeChange($event)">Slide me!</mat-slide-toggle>
+
+  <mat-card>
+    <mat-card-content>Simple card</mat-card-content>
+  </mat-card>
+
+  <mat-form-field>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+
+  <button class="btn btn-primary" (click)="getData()">Click Me</button>
+
+  <button class="btn btn-primary">Save</button>
+
+  <i class="fa fa-facebook-official" aria-hidden="true"></i>
+
+  <fa-icon [icon]="faCoffee"></fa-icon>
+
+  <img
+    src="../../assets/icons/compass-drafting-solid.svg"
+    alt=""
+    height="200px"
+  />
+
+  <i class="fa-brands fa-facebook-messenger"></i>
+
+  <ng-container *ngIf="products.length > 0; else noProducts">
+    <ng-container *ngFor="let product of products">
+      <h1>{{ product["productName"] }}</h1>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #noProducts>
+    <h2>Empty Data</h2>
+  </ng-template> -->
+
   <div class="cards-container">
-    <figure class="card">
-      <div class="card__emoji">🥑🥑</div>
+    <div
+      *ngFor="let product of products; let i = index; trackBy: trackByFunction"
+    >
+      <figure class="card">
+        <div class="card__emoji">{{ product["image"] }}</div>
 
-      <div class="card__title-box">
-        <h2 class="card__title">Fresh Avocado</h2>
-      </div>
-
-      <div class="card__details">
-        <div class="card__detail-box">
-          <h6 class="card__detail card__detail--organic">Organic!</h6>
+        <div class="card__title-box">
+          <h2 class="card__title">{{ product["productName"] }}</h2>
         </div>
 
-        <div class="card__detail-box">
-          <h6 class="card__detail">4 🥑 per 📦</h6>
+        <div class="card__details">
+          <div *ngIf="product['organic']" class="card__detail-box">
+            <h6 class="card__detail card__detail--organic">Organic!</h6>
+          </div>
+
+          <div class="card__detail-box">
+            <h6 class="card__detail">{{ product["quantity"] }} per 📦</h6>
+          </div>
+
+          <div class="card__detail-box">
+            <h6 class="card__detail card__detail--price">
+              {{ product["price"] }}€
+            </h6>
+          </div>
         </div>
 
-        <div class="card__detail-box">
-          <h6 class="card__detail card__detail--price">6.50€</h6>
-        </div>
-      </div>
-
-      <a class="card__link" href="#">
-        <span>Detail <i class="emoji-right">👉</i></span>
-      </a>
-    </figure>
-
-    <figure class="card">
-      <div class="card__emoji">🧀🧀</div>
-      <div class="card__title-box">
-        <h2 class="card__title">Goat and Sheep Cheese</h2>
-      </div>
-
-      <div class="card__details">
-        <div class="card__detail-box">
-          <h6 class="card__detail">250g per 📦</h6>
-        </div>
-
-        <div class="card__detail-box">
-          <h6 class="card__detail card__detail--price">5.00€</h6>
-        </div>
-      </div>
-
-      <a class="card__link" href="#">
-        <span>Detail <i class="emoji-right">👉</i></span>
-      </a>
-    </figure>
-
-    <figure class="card">
-      <div class="card__emoji">🥦🥦</div>
-      <div class="card__title-box">
-        <h2 class="card__title">Apollo Broccoli</h2>
-      </div>
-
-      <div class="card__details">
-        <div class="card__detail-box">
-          <h6 class="card__detail card__detail--organic">Organic!</h6>
-        </div>
-
-        <div class="card__detail-box">
-          <h6 class="card__detail">3 🥦 per 📦</h6>
-        </div>
-
-        <div class="card__detail-box">
-          <h6 class="card__detail card__detail--price">5.50€</h6>
-        </div>
-      </div>
-
-      <a class="card__link" href="#">
-        <span>Detail <i class="emoji-right">👉</i></span>
-      </a>
-    </figure>
-
-    <figure class="card">
-      <div class="card__emoji">🥕🥕</div>
-      <div class="card__title-box">
-        <h2 class="card__title">Baby Carrots</h2>
-      </div>
-
-      <div class="card__details">
-        <div class="card__detail-box">
-          <h6 class="card__detail card__detail--organic">Organic!</h6>
-        </div>
-
-        <div class="card__detail-box">
-          <h6 class="card__detail">20 🥕 per 📦</h6>
-        </div>
-
-        <div class="card__detail-box">
-          <h6 class="card__detail card__detail--price">3.00€</h6>
-        </div>
-      </div>
-
-      <a class="card__link" href="#">
-        <span>Detail <i class="emoji-right">👉</i></span>
-      </a>
-    </figure>
-
-    <figure class="card">
-      <div class="card__emoji">🌽🌽</div>
-      <div class="card__title-box">
-        <h2 class="card__title">Sweet Corncobs</h2>
-      </div>
-
-      <div class="card__details">
-        <div class="card__detail-box">
-          <h6 class="card__detail">2 🌽 per 📦</h6>
-        </div>
-
-        <div class="card__detail-box">
-          <h6 class="card__detail card__detail--price">2.00€</h6>
-        </div>
-      </div>
-
-      <a class="card__link" href="#">
-        <span>Detail <i class="emoji-right">👉</i></span>
-      </a>
-    </figure>
+        <a class="card__link" routerLink="product/0">
+          <span>Detail <i class="emoji-right">👉</i></span>
+        </a>
+      </figure>
+    </div>
   </div>
+
+  <button (click)="addNew()">Add New Products</button>
+  <button (click)="clearData()">Clear Data</button>
 </div>

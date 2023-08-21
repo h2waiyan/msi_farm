@@ -2,24 +2,26 @@
   <h1>🌽 Node Farm 🥦</h1>
 
   <figure class="product">
-    <div class="product__organic"><h5>Organic</h5></div>
+    <div *ngIf="organic" class="product__organic">
+      <h5>Organic</h5>
+    </div>
     <a href="#" class="product__back">
       <span class="emoji-left">👈</span>Back
     </a>
     <div class="product__hero">
-      <span class="product__emoji product__emoji--1">🥑</span>
-      <span class="product__emoji product__emoji--2">🥑</span>
-      <span class="product__emoji product__emoji--3">🥑</span>
-      <span class="product__emoji product__emoji--4">🥑</span>
-      <span class="product__emoji product__emoji--5">🥑</span>
-      <span class="product__emoji product__emoji--6">🥑</span>
-      <span class="product__emoji product__emoji--7">🥑</span>
-      <span class="product__emoji product__emoji--8">🥑</span>
-      <span class="product__emoji product__emoji--9">🥑</span>
+      <span class="product__emoji product__emoji--1">{{ img }}</span>
+      <span class="product__emoji product__emoji--2">{{ img }}</span>
+      <span class="product__emoji product__emoji--3">{{ img }}</span>
+      <span class="product__emoji product__emoji--4">{{ img }}</span>
+      <span class="product__emoji product__emoji--5">{{ img }}</span>
+      <span class="product__emoji product__emoji--6">{{ img }}</span>
+      <span class="product__emoji product__emoji--7">{{ img }}</span>
+      <span class="product__emoji product__emoji--8">{{ img }}</span>
+      <span class="product__emoji product__emoji--9">{{ img }}</span>
     </div>
-    <h2 class="product__name">Fresh Avocados</h2>
+    <h2 class="product__name">{{ name }}</h2>
     <div class="product__details">
-      <p><span class="emoji-left">🌍</span> From Portugal</p>
+      <p><span class="emoji-left">🌍</span> From {{ from }}</p>
       <p><span class="emoji-left">❤️</span> Vitamin B, Vitamin K</p>
       <p><span class="emoji-left">📦</span> 4 🥑</p>
       <p><span class="emoji-left">🏷</span> 6.50€</p>
