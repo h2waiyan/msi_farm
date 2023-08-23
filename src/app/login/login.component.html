@@ -2,10 +2,12 @@
 
 <label for="username" class="form-label">Username</label>
 <input
-  type="text"
+  type="email"
   id="username"
   name="username"
   class="form-control"
+  required
+  minlength="4"
   [(ngModel)]="username"
 />
 
@@ -22,4 +24,4 @@
 
 <br />
 
-<button class="btn btn-primary" (click)="login()">Login</button>
+<button class="btn btn-primary" (click)="login()" disabled>Login</button>
